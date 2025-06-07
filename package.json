@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://vitoriapena.github.io/prompt-generator/",
+  "homepage": "https://jvictorvieira.github.io/prompt-generator/",
   
   "scripts": {
     "dev": "vite",
