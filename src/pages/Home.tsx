@@ -11,7 +11,10 @@ const Home: React.FC = () => {
   const [formData, setFormData] = useState<FormDataBasic | FormDataInter | FormDataAdv>({
     papel: '',
     tarefa: '',
-    contexto: ''
+    contexto: '',
+    formatoSaida: '',
+    restricoes: '',
+    dicas: ''
   });
   const [generatedPrompt, setGeneratedPrompt] = useState<string>('');
   const { generatePrompt } = usePromptGenerator();
@@ -47,19 +50,23 @@ const Home: React.FC = () => {
   const isFormValid = (): boolean => {
     const { papel, tarefa, contexto } = formData;
     const basicValid = papel.trim() !== '' && tarefa.trim() !== '' && contexto.trim() !== '';
-
     if (level === 'basico') {
       return basicValid;
     }
 
     if (level === 'intermediario') {
       const { formatoSaida, restricoes } = formData as FormDataInter;
-      return basicValid && formatoSaida.trim() !== '' && restricoes.trim() !== '';
+      if (formatoSaida!== undefined && restricoes !== undefined){
+        return basicValid  && formatoSaida.trim() !== '' && restricoes.trim() !== '';
+      }
     }
 
     if (level === 'avancado') {
       const { formatoSaida, restricoes } = formData as FormDataAdv;
-      return basicValid && formatoSaida.trim() !== '' && restricoes.trim() !== '';
+      if (formatoSaida !== undefined && restricoes !== undefined && 'dicas' in formData) {
+          return basicValid && formatoSaida.trim() !== '' && restricoes.trim() !== '';
+      }
+
     }
 
     return false;
