@@ -88,7 +88,7 @@ const LevelForm: React.FC<LevelFormProps> = ({
       >
         <Textarea
           id="tarefa"
-          placeholder="Ex: Criar um plano de conteúdo para redes sociais"
+          placeholder="Ex: Crie um plano de conteúdo para redes sociais"
           value={formData.tarefa}
           onChange={(e) => handleInputChange('tarefa', e.target.value)}
           className="w-full min-h-[100px]"
