@@ -73,7 +73,7 @@ const LevelForm: React.FC<LevelFormProps> = ({
       >
         <Input
           id="papel"
-          placeholder="Ex: especialista em marketing digital"
+          placeholder="Ex: Especialista em marketing digital"
           value={formData.papel}
           onChange={(e) => handleInputChange('papel', e.target.value)}
           className="w-full"
